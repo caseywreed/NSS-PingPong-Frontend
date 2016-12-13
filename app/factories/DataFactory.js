@@ -3,13 +3,11 @@
 app.factory("DataFactory", ($http, $q) => {
 
     const getAllPlayers = function () {
-        console.log("getAllPlayers running")
         return $q((resolve,reject) => {
             $http({
                 method: 'GET',
                 url: 'https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/'
             }).then(function successCallback(data) {
-                console.log(data)
                 resolve(data)
             }, function errorCallback(error) {
                 console.log(error)
@@ -17,12 +15,11 @@ app.factory("DataFactory", ($http, $q) => {
         })
     }
 
-    const getSinglePlayer = function () {
-        console.log("getSinglePlayer running")
+    const getSinglePlayer = function (id) {
         return $q((resolve,reject) => {
             $http({
                 method: 'GET',
-                url: 'https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/1'
+                url: 'https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/${id}'
             }).then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
