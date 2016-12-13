@@ -1,0 +1,17 @@
+{
+  "name": "NSS-PingPong-Frontend",
+  "homepage": "https://github.com/caseywreed/NSS-PingPong-Frontend",
+  "authors": [
+    "Casey Reed <casey.w.reed@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

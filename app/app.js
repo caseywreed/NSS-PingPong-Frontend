@@ -1,20 +1,19 @@
 "use strict";
 
+//Two args: Name of Module, Array of Dependencies
+// Just like var ng-route = require("app/js/etc.js")
 var app = angular.module("PingApp", ["ngRoute"])
+.constant("FirebaseURL", "INSERT THIS LATER")
 
 app.config(function ($routeProvider) {
     $routeProvider.
         when("/", {
-            templateUrl: "partials/cuepoint-login.html",
-            controller: "CueLoginCtrl"
+            templateUrl: "partials/main.html",
+            controller: "MainCtrl"
+        }).
+        when("/login", {
+            templateUrl: "partials/login.html",
+            controller: "LoginCtrl"
+        }).
         otherwise('/')
-})
-
-app.run( ($location, FBCreds) => {
-    let creds = FBCreds
-    let authConfig = {
-        apiKey: creds.key,
-        authDomain: creds.authDomain
-    }
-    firebase.initializeApp(authConfig)
 })
