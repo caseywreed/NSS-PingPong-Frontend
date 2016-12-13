@@ -9,7 +9,7 @@ app.config(function ($routeProvider) {
     $routeProvider.
         when("/", {
             templateUrl: "partials/main.html",
-            controller: "MainCtrl"
+            controller: "HomeCtrl"
         }).
         when("/login", {
             templateUrl: "partials/login.html",
