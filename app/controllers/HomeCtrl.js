@@ -16,7 +16,7 @@ app.controller("HomeCtrl", function ($scope, DataFactory) {
     }
 
     $scope.orderByFunction = function(p){
-        return parseInt(p.stats.wins, p.stats.losses);
+        return parseInt(p.stats.wins, p.stats.losses, p.stats.avgPointDiff, p.stats.winPercentage);
     };
 
     $scope.getOnePlayer = function () {

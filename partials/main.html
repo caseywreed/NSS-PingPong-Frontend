@@ -33,7 +33,7 @@
                 <td>
                     <a href="#!/" ng-click="sortType = 'games'; sortReverse = !sortReverse">
                         Games
-                        <span ng-show="sortType == 'cohort'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'games'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
@@ -48,16 +48,37 @@
                         <span ng-show="sortType == 'losses'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
+                <td>
+                    <a href="#!/" ng-click="sortType = 'winPercentage'; sortReverse = !sortReverse">
+                        Win Percentage
+                        <span ng-show="sortType == 'winPercentage'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#!/" ng-click="sortType = 'avgPointDiff'; sortReverse = !sortReverse">
+                        Average Point Differential
+                        <span ng-show="sortType == 'avgPointDiff'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#!/" ng-click="sortType = 'rating'; sortReverse = !sortReverse">
+                        Rating
+                        <span ng-show="sortType == 'rating'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
             </tr>
         </thead>
 
         <tbody>
         <tr ng-repeat="p in playersArray | orderBy:orderByFunction:sortReverse | filter:searchPlayer">
             <td>{{ p.lastName}}, {{ p.firstName }}</td>
-            <td>{{ p.cohort }}</td>
-            <td>{{ p.stats.games }}</td>
-            <td>{{ p.stats.wins }}</td>
-            <td>{{ p.stats.losses }}</td>
+            <td>{{ p.cohort | number}}</td>
+            <td>{{ p.stats.games | number }}</td>
+            <td>{{ p.stats.wins | number }}</td>
+            <td>{{ p.stats.losses | number}}</td>
+            <td>{{ p.stats.winPercentage | number}}</td>
+            <td>{{ p.stats.avgPointDiff | number}}</td>
+            <td>{{ p.stats.rating | number}}</td>
         </tr>
         </tbody>
 
