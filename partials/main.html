@@ -70,7 +70,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="p in playersArray | orderBy:orderByFunction:sortReverse | filter:searchPlayer">
+        <tr ng-repeat="p in playersArray | orderBy:sortType:sortReverse | filter:searchPlayer">
             <td>{{ p.lastName}}, {{ p.firstName }}</td>
             <td>{{ p.cohort | number}}</td>
             <td>{{ p.stats.games | number }}</td>
