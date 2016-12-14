@@ -15,5 +15,9 @@ app.config(function ($routeProvider) {
             templateUrl: "partials/login.html",
             controller: "LoginCtrl"
         }).
+        when("/players/:playerId", {
+            templateUrl: "partials/player-detail.html",
+            controller: "PlayerDetailCtrl"
+        }).
         otherwise('/')
 })

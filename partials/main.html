@@ -71,7 +71,7 @@
 
         <tbody>
         <tr ng-repeat="p in playersArray | orderBy:sortType:sortReverse | filter:searchPlayer">
-            <td>{{ p.lastName}}, {{ p.firstName }}</td>
+            <td><a ng-href="#!/players/{{p.playerId}}">{{ p.lastName}}, {{ p.firstName }}</a></td>
             <td>{{ p.cohort | number}}</td>
             <td>{{ p.stats.games | number }}</td>
             <td>{{ p.stats.wins | number }}</td>
