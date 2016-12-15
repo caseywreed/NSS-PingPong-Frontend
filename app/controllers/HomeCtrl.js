@@ -8,6 +8,10 @@ app.controller("HomeCtrl", function ($scope, $q, DataFactory) {
     $scope.searchPlayer = '';     // set the default search/filter term
 
     $scope.init = function () {
+        $scope.loadDataFromAPI();
+    }
+
+    $scope.loadDataFromAPI = function () {
         $q.all([
             DataFactory.getAllPlayers(),
             DataFactory.getAverageStats()

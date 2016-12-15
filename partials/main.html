@@ -1,10 +1,14 @@
-<div class="container" ng-init="init()" ng-controller="HomeCtrl">
+<div ng-show="!$parent.dataCache.playerData" class="loadingDiv">
+    P ... I ... N ... G ...
+</div>
+
+<div ng-show="$parent.dataCache.playerData" class="container" ng-init="init()" ng-controller="HomeCtrl">
 
     <div class="alert alert-info">
-    <p>Sort Type: {{ sortType }}</p>
-    <p>Sort Reverse: {{ sortReverse }}</p>
-    <p>Search Query: {{ searchPlayer }}</p>
-  </div>
+        <p>Sort Type: {{ sortType }}</p>
+        <p>Sort Reverse: {{ sortReverse }}</p>
+        <p>Search Query: {{ searchPlayer }}</p>
+    </div>
 
     <form>
         <div class="form-group">
