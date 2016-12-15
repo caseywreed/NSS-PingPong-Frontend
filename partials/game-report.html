@@ -1,0 +1,32 @@
+<div class="container" ng-init="init()" ng-controller="GameReportCtrl">
+
+    <button ng-click="
+    showTwoPlayerGameForm = !showTwoPlayerGameForm;
+    showFourPlayerGameForm = false;
+    showGamePrompt = false;">
+    Two Player Game
+    </button>
+
+    <button ng-click="
+    showFourPlayerGameForm = !showFourPlayerGameForm;
+    showTwoPlayerGameForm = false;
+    showGamePrompt = false">
+    Four Player Game
+    </button>
+
+
+    <div ng-show="showGamePrompt">
+        Ask whether it's a two or four player game
+    </div>
+
+    <!-- Two Player Game Form -->
+    <div ng-show="showTwoPlayerGameForm">
+        <h1>It's the two player form!</h1>
+    </div>
+
+    <!-- Four Player Game Form -->
+    <div ng-show="showFourPlayerGameForm">
+        <h1>It's the four player form!</h1>
+    </div>
+
+</div>
