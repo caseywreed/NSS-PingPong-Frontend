@@ -23,14 +23,14 @@ app.controller("GameReportCtrl", function ($scope, $q, $location, DataFactory) {
     }
 
     $scope.init = function () {
-        console.log("GameReportCtrl hooked up")
+        //console.log("GameReportCtrl hooked up")
     }
 
     $scope.submitScores = function (game) {
         if ($scope.showTwoPlayerGameForm) {
             DataFactory.postSinglesGame(game)
             .then(function () {
-                $scope.loadDataFromAPI()
+                $scope.$parent.loadDataFromAPI()
                 $location.url("/")
                 })
             }
@@ -38,22 +38,12 @@ app.controller("GameReportCtrl", function ($scope, $q, $location, DataFactory) {
             console.log("Posting a Four Player Game")
             DataFactory.postDoublesGame(game)
             .then(function () {
-                $scope.loadDataFromAPI()
+                $scope.$parent.loadDataFromAPI()
                 $location.url("/")
             })
         }
     }
 
 
-    $scope.loadDataFromAPI = function () {
-        $q.all([
-            DataFactory.getAllPlayers(),
-            DataFactory.getAverageStats()
-            ])
-        .then(function (data) {
-            $scope.dataCache.playerData = data[0].data
-            $scope.dataCache.avgPlayerStats = data[1].data
-        })
-    }
 
 })
