@@ -1,0 +1,94 @@
+<div class="container" ng-init="init()" ng-controller="GameReportCtrl">
+
+    <button ng-click="
+    showTwoPlayerGameForm = true;
+    showFourPlayerGameForm = false;
+    showGamePrompt = false;">
+    Singles Game
+    </button>
+
+    <button ng-click="
+    showFourPlayerGameForm = true;
+    showTwoPlayerGameForm = false;
+    showGamePrompt = false">
+    Doubles Game
+    </button>
+
+    <div ng-show="showGamePrompt">
+        Ask whether it's a two or four player game
+    </div>
+
+    <!-- Two Player Game Form -->
+    <div ng-show="showTwoPlayerGameForm">
+
+        <h4>Player One</h4>
+        <select ng-model="twoPlayerGame.playerOneId">
+        <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+            </option>
+        </select>
+
+        <input type="number" ng-model="twoPlayerGame.teamOneScore">
+
+        <h4>Player Two</h4>
+        <select ng-model="twoPlayerGame.playerTwoId">
+        <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
+        </select>
+
+        <input type="number" ng-model="twoPlayerGame.teamTwoScore">
+
+        <button ng-click="submitScores(twoPlayerGame)">Submit Scores</button>
+
+    </div>
+
+    <!-- Four Player Game Form -->
+    <div ng-show="showFourPlayerGameForm">
+
+        <h4>Player One</h4>
+        <select ng-model="fourPlayerGame.playerOneId">
+            <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+            </option>
+        </select>
+
+        <h4>Player Two</h4>
+        <select ng-model="fourPlayerGame.playerTwoId">
+        <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
+        </select>
+
+        <input type="number" ng-model="fourPlayerGame.teamOneScore">
+
+        <h4>Player Three</h4>
+        <select ng-model="fourPlayerGame.playerThreeId">
+        <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+            </option>
+        </select>
+
+        <h4>Player Four</h4>
+        <select ng-model="fourPlayerGame.playerFourId">
+        <option>Select a Player</option>
+            <option
+            ng-repeat="p in $parent.dataCache.playerData"
+            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
+        </select>
+
+        <input type="number" ng-model="fourPlayerGame.teamTwoScore">
+
+        <button ng-click="submitScores(fourPlayerGame)">Submit Scores</button>
+
+    </div>
+
+</div>
