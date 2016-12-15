@@ -12,16 +12,11 @@ app.controller("HomeCtrl", function ($scope, DataFactory) {
         DataFactory.getAllPlayers()
         .then(function (data) {
             $scope.playersArray = data.data
+            $scope.playerDataCache.playerData = data.data
+            console.log("testVariable", $scope.$parent.testVariable)
+            console.log("testVariable", $scope.$parent.playerDataCache)
+
         })
-    }
-
-    $scope.orderByFunction = function(p){
-        return parseInt(p.stats.wins, p.stats.losses, p.stats.avgPointDiff, p.stats.winPercentage);
-    };
-
-    $scope.getOnePlayer = function () {
-        console.log("Inside getOnePlayer")
-        DataFactory.getSinglePlayer();
     }
 
 })

@@ -7,9 +7,11 @@
     <link rel="stylesheet" type="text/css" href="dist/css/style.css">
 </head>
 <body ng-app="PingApp">
-        <div ng-include="'partials/navbar.html'"></div>
 
-        <div ng-view></div>
+        <div ng-controller="TopCtrl">
+            <div ng-include="'partials/navbar.html'"></div>
+            <div ng-view></div>
+        </div>
 
     <!-- Third Party Libraries -->
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -21,6 +23,7 @@
     <script type="text/javascript" src="app/app.js"></script>
 
     <!-- Controllers -->
+    <script type="text/javascript" src="app/controllers/TopCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/HomeCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/PlayerDetailCtrl.js"></script>

@@ -9,6 +9,8 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
     $scope.data = []
 
     $scope.init = function () {
+        console.log("TopCtrl data in PlayerDetailCtrl", $scope.$parent.playerDataCache.string)
+        console.log("testVariable in PlayerDetailCtrl", $scope.$parent.testVariable)
         $q.all([
             DataFactory.getSinglePlayer($routeParams.playerId),
             DataFactory.getAverageStats()
