@@ -8,7 +8,9 @@ app.controller("HomeCtrl", function ($scope, $q, DataFactory) {
     $scope.searchPlayer = '';     // set the default search/filter term
 
     $scope.init = function () {
-        $scope.loadDataFromAPI();
+        if ($scope.dataCache == {}) {
+            $scope.loadDataFromAPI();
+        }
     }
 
     $scope.loadDataFromAPI = function () {

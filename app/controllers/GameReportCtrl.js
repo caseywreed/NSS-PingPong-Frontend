@@ -1,11 +1,10 @@
 "use strict";
 
-app.controller("GameReportCtrl", function ($scope, $q, DataFactory) {
+app.controller("GameReportCtrl", function ($scope, $q, $location, DataFactory) {
 
     $scope.showGamePrompt = true
     $scope.showTwoPlayerGameForm = false
     $scope.showFourPlayerGameForm = false
-    $scope.twoPlayerGameQuestion = null
 
     $scope.twoPlayerGame = {
         "playerOneId": null,
@@ -27,14 +26,34 @@ app.controller("GameReportCtrl", function ($scope, $q, DataFactory) {
         console.log("GameReportCtrl hooked up")
     }
 
-    // $scope.sendReport = function () {
-    //     if (twoPlayerGameQuestion) {
-    //         // Post to Reports/TwoPlayerGame
-    //         // Sending the twoPlayerGame object
-    //     } else {
-    //         //Post to Reports/FourPlayerGame
-    //         // Sending the fourPlayerGame object
-    //     }
-    // }
+    $scope.submitScores = function (game) {
+        if ($scope.showTwoPlayerGameForm) {
+            DataFactory.postSinglesGame(game)
+            .then(function () {
+                $scope.loadDataFromAPI()
+                $location.url("/")
+                })
+            }
+        if ($scope.showFourPlayerGameForm) {
+            console.log("Posting a Four Player Game")
+            DataFactory.postDoublesGame(game)
+            .then(function () {
+                $scope.loadDataFromAPI()
+                $location.url("/")
+            })
+        }
+    }
+
+
+    $scope.loadDataFromAPI = function () {
+        $q.all([
+            DataFactory.getAllPlayers(),
+            DataFactory.getAverageStats()
+            ])
+        .then(function (data) {
+            $scope.dataCache.playerData = data[0].data
+            $scope.dataCache.avgPlayerStats = data[1].data
+        })
+    }
 
 })

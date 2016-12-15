@@ -47,6 +47,32 @@ app.factory("DataFactory", ($http, $q) => {
         })
     }
 
-    return {getAllPlayers, getSinglePlayer, getAverageStats}
+    const postSinglesGame = function (game) {
+        return $q((resolve,reject) => {
+            $http.post("https://nss-pingpong-api20161212012918.azurewebsites.net/api/Reports/TwoPlayerGame", game)
+            .then(function successCallback(data) {
+                console.log(data)
+                resolve(data)
+            }, function errorCallback(data) {
+                // called asynchronously if an error occurs
+                // or server returns data with an error status.
+            });
+        })
+    }
+
+    const postDoublesGame = function (game) {
+        return $q((resolve,reject) => {
+            $http.post("https://nss-pingpong-api20161212012918.azurewebsites.net/api/Reports/FourPlayerGame", game)
+            .then(function successCallback(data) {
+                console.log(data)
+                resolve(data)
+            }, function errorCallback(data) {
+                // called asynchronously if an error occurs
+                // or server returns data with an error status.
+            });
+        })
+    }
+
+    return {getAllPlayers, getSinglePlayer, getAverageStats, postSinglesGame, postDoublesGame}
 
 })
