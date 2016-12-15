@@ -8,6 +8,7 @@ app.factory("DataFactory", ($http, $q) => {
                 method: 'GET',
                 url: 'https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/'
             }).then(function successCallback(data) {
+                console.log(data)
                 resolve(data)
             }, function errorCallback(error) {
                 console.log(error)
@@ -19,17 +20,33 @@ app.factory("DataFactory", ($http, $q) => {
         return $q((resolve,reject) => {
             $http({
                 method: 'GET',
-                url: 'https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/${id}'
+                url: `https://nss-pingpong-api20161212012918.azurewebsites.net/api/Players/${id}`
             }).then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-              }, function errorCallback(data) {
+            }, function errorCallback(data) {
                 // called asynchronously if an error occurs
                 // or server returns data with an error status.
-              });
+            });
         })
     }
 
-    return {getAllPlayers, getSinglePlayer}
+    const getAverageStats = function () {
+        console.log("getAverageStats running")
+        return $q((resolve,reject) => {
+            $http({
+                method: 'GET',
+                url: `https://nss-pingpong-api20161212012918.azurewebsites.net/api/Reports/GetAverageStats`
+            }).then(function successCallback(data) {
+                console.log(data)
+                resolve(data)
+            }, function errorCallback(data) {
+                // called asynchronously if an error occurs
+                // or server returns data with an error status.
+            });
+        })
+    }
+
+    return {getAllPlayers, getSinglePlayer, getAverageStats}
 
 })
