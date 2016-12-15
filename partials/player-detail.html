@@ -1,5 +1,10 @@
-<div class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
+<div ng-show="player" class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
 
-<h1>{{player.firstName}} {{player.lastName}}</h1>
+<h3>{{player.firstName}} {{player.lastName}}</h3>
+<h5>Cohort {{player.cohort}}</h5>
+
+<canvas id="radar" class="chart chart-radar"
+  chart-data="data" chart-options="options" chart-colors="colors" chart-labels="labels">
+</canvas>
 
 </div>

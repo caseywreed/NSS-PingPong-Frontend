@@ -2,7 +2,7 @@
 
 //Two args: Name of Module, Array of Dependencies
 // Just like var ng-route = require("app/js/etc.js")
-var app = angular.module("PingApp", ["ngRoute"])
+var app = angular.module("PingApp", ["ngRoute", "chart.js"])
 .constant("FirebaseURL", "INSERT THIS LATER")
 
 app.config(function ($routeProvider) {
