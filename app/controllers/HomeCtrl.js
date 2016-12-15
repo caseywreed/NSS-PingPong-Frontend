@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("HomeCtrl", function ($scope, DataFactory) {
+app.controller("HomeCtrl", function ($scope, $q, DataFactory) {
 
     $scope.playersArray = null;
     $scope.sortType = 'name'; // set the default sort type
@@ -8,14 +8,13 @@ app.controller("HomeCtrl", function ($scope, DataFactory) {
     $scope.searchPlayer = '';     // set the default search/filter term
 
     $scope.init = function () {
-        console.log("HomeCtrl running")
-        DataFactory.getAllPlayers()
+        $q.all([
+            DataFactory.getAllPlayers(),
+            DataFactory.getAverageStats()
+            ])
         .then(function (data) {
-            $scope.playersArray = data.data
-            $scope.playerDataCache.playerData = data.data
-            console.log("testVariable", $scope.$parent.testVariable)
-            console.log("testVariable", $scope.$parent.playerDataCache)
-
+            $scope.dataCache.playerData = data[0].data
+            $scope.dataCache.avgPlayerStats = data[1].data
         })
     }
 
