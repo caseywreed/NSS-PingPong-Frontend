@@ -8,18 +8,20 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
 
     // radar graph wins/losses/games
     $scope.radarGraphData = []
-    $scope.radarColors = ['#BF0E00', '#016775', '#6FB100']
+    $scope.colors = ['#BF0E00', '#016775', '#6FB100']
     $scope.radarLabels =["Games", "Wins", "Losses"]
 
     // radar graph wins/losses/games
     $scope.radarPercGraphData = []
-    $scope.radarPercColors = ['#BF0E00', '#016775', '#6FB100']
     $scope.radarPercLabels =["Win %", "Singles Win %", "Doubles Win %"]
 
     // point diff bar charts
     $scope.pointDiffData = []
-    $scope.pointDiffColors = ['#BF0E00', '#016775', '#6FB100']
-    $scope.pointDiffLabels =["Avg. Point Differntial"]
+    $scope.pointDiffLabels =["Avg. Point Differential"]
+
+    // rating data bar chart
+    $scope.ratingData = []
+    $scope.ratingLabels =["Calculated Player Rating"]
 
     $scope.radarOptions = {
         scale: {
@@ -29,11 +31,13 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         }
     }
 
-    $scope.pointDiffOptions = {
-        scale: {
-            ticks: {
-                beginAtZero: true
-            }
+    $scope.barOptions = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
         }
     }
 
@@ -74,6 +78,11 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
             [$scope.player.stats.avgPointDiff],
             [$scope.$parent.dataCache.avgPlayerStats.avgPointDiff]
         )
+        // Seeds Rating Graph
+        $scope.ratingData.push(
+            [$scope.player.stats.rating],
+            [$scope.$parent.dataCache.avgPlayerStats.rating]
+        )
     }
 
     // Break out each of these into their own functions as well
@@ -88,6 +97,7 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         $scope.radarGraphData.pop()
         $scope.radarPercGraphData.pop()
         $scope.pointDiffData.pop()
+        $scope.ratingData.pop()
 
         $scope.radarGraphData.push([
             $scope.comparePlayer.stats.games,
@@ -101,6 +111,9 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         ])
         $scope.pointDiffData.push(
             [$scope.comparePlayer.stats.avgPointDiff]
+        )
+        $scope.ratingData.push(
+            [$scope.comparePlayer.stats.rating]
         )
     }
 
