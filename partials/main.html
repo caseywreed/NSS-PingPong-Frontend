@@ -59,6 +59,18 @@
                     </a>
                 </td>
                 <td>
+                    <a href="#!/" ng-click="sortType = 'singlesWinPercentage'; sortReverse = !sortReverse">
+                        Singles Win Percentage
+                        <span ng-show="sortType == 'singlesWinPercentage'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#!/" ng-click="sortType = 'doublesWinPercentage'; sortReverse = !sortReverse">
+                        Doubles Win Percentage
+                        <span ng-show="sortType == 'doublesWinPercentage'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
+                <td>
                     <a href="#!/" ng-click="sortType = 'avgPointDiff'; sortReverse = !sortReverse">
                         Average Point Differential
                         <span ng-show="sortType == 'avgPointDiff'" class="fa fa-caret-down"></span>
@@ -81,6 +93,8 @@
             <td>{{ p.stats.wins | number }}</td>
             <td>{{ p.stats.losses | number}}</td>
             <td>{{ p.stats.winPercentage | number}}</td>
+            <td>{{ p.stats.singlesWinPercentage | number}}</td>
+            <td>{{ p.stats.doublesWinPercentage | number}}</td>
             <td>{{ p.stats.avgPointDiff | number}}</td>
             <td>{{ p.stats.rating | number}}</td>
         </tr>
