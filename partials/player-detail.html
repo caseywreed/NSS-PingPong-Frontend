@@ -12,21 +12,27 @@
     </select>
 
     <div class="row">
-    <div class="col-md-6">
-        <h4>Game Totals</h4>
-        <canvas id="radar" class="chart chart-radar"
-          chart-data="radarGraphData" chart-options="radarOptions" chart-colors="radarColors" chart-labels="radarLabels">
-        </canvas>
-    </div>
-    <div class="col-md-6">
-        <h4>Win Percentages</h4>
-        <canvas id="radarPerc" class="chart chart-radar"
-          chart-data="radarPercGraphData" chart-options="radarOptions" chart-colors="radarPercColors" chart-labels="radarPercLabels">
-        </canvas>
+        <div class="col-md-6">
+            <h4>Game Totals</h4>
+            <canvas id="radar" class="chart chart-radar"
+              chart-data="radarGraphData" chart-options="radarOptions" chart-colors="radarColors" chart-labels="radarLabels">
+            </canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Win Percentages</h4>
+            <canvas id="radarPerc" class="chart chart-radar"
+              chart-data="radarPercGraphData" chart-options="radarOptions" chart-colors="radarPercColors" chart-labels="radarPercLabels">
+            </canvas>
+        </div>
     </div>
 
     <div class="row">
-
+        <div>
+            <h4>Average Point Differential</h4>
+            <canvas id="bar" class="chart chart-bar"
+              chart-data="pointDiffData" chart-options="pointDiffOptions" chart-colors="pointDiffColors" chart-labels="pointDiffLabels">
+            </canvas>
+        </div>
     </div>
 
 </div>
