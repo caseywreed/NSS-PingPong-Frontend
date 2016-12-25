@@ -1,10 +1,44 @@
 <div ng-show="player" class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
 
-<h3>{{player.firstName}} {{player.lastName}}</h3>
-<h5>Cohort {{player.cohort}}</h5>
+    <h3>{{player.firstName}} {{player.lastName}}</h3>
+    <h5>Cohort {{player.cohort}}</h5>
 
-<canvas id="radar" class="chart chart-radar"
-  chart-data="graphData" chart-options="options" chart-colors="colors" chart-labels="labels">
-</canvas>
+    <select ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
+        <option>Select a Player</option>
+        <option
+        ng-repeat="p in $parent.dataCache.playerData"
+        value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+        </option>
+    </select>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Game Totals</h4>
+            <canvas id="radar" class="chart chart-radar"
+              chart-data="radarGraphData" chart-options="radarOptions" chart-colors="colors" chart-labels="radarLabels">
+            </canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Win Percentages</h4>
+            <canvas id="radarPerc" class="chart chart-radar"
+              chart-data="radarPercGraphData" chart-options="radarOptions" chart-colors="colors" chart-labels="radarPercLabels">
+            </canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Average Point Differential</h4>
+            <canvas id="bar" class="chart chart-bar"
+              chart-data="pointDiffData" chart-options="barOptions" chart-colors="colors" chart-labels="pointDiffLabels">
+            </canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>Rating</h4>
+            <canvas id="bar" class="chart chart-bar"
+              chart-data="ratingData" chart-options="barOptions" chart-colors="colors" chart-labels="ratingLabels">
+            </canvas>
+        </div>
+    </div>
 
 </div>
