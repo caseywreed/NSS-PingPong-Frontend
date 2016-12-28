@@ -1,9 +1,9 @@
 <div ng-show="player" class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
 
     <h3>
-        {{player.firstName}} {{player.lastName}} vs
-        <span ng-hide="comparePlayer">Average Player</span>
-        <span ng-show="comparePlayer">{{comparePlayer.firstName}} {{comparePlayer.lastName}}</span>
+        <span class="playerDetailName">{{player.firstName}} {{player.lastName}}</span> vs
+        <span class ="opponentDetailName" ng-hide="comparePlayer">Average Player</span>
+        <span class ="opponentDetailName" ng-show="comparePlayer">{{comparePlayer.firstName}} {{comparePlayer.lastName}}</span>
     </h3>
     <h5>Cohort {{player.cohort}}</h5>
 
