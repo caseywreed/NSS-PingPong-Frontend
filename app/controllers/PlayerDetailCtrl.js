@@ -49,12 +49,11 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         $scope.seedInitialData()
     };
 
-    // Break out each one of these into their own separate functions
     $scope.seedInitialData = function () {
         $scope.seedRadarGraphData();
         $scope.seedPercentageGraphData();
         $scope.seedPointDiffData();
-        $scope.seedRatingData()
+        $scope.seedRatingData();
     };
 
     $scope.seedRadarGraphData = function () {
@@ -97,7 +96,6 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         )
     }
 
-    // Break out each of these into their own functions as well
     $scope.getComparePlayer = function (id) {
         //Grab a new player to compare
         $scope.comparePlayer = $scope.dataCache.playerData.filter(function (p) {
@@ -130,7 +128,7 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
         );
         $scope.ratingData.push(
             [$scope.comparePlayer.stats.rating]
-        )
+        );
     }
 
 });
