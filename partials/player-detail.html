@@ -6,7 +6,8 @@
         <span class ="opponentDetailName" ng-show="comparePlayer">{{comparePlayer.firstName}} {{comparePlayer.lastName}} (Cohort {{comparePlayer.cohort}})</span>
     </h3>
 
-    <select ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
+    <label for="comparePlayerSelect">Compare to </label>
+    <select id="comparePlayerSelect" ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
         <option value="averagePlayer">Average Player Stats</option>
         <option
         ng-repeat="p in $parent.dataCache.playerData"

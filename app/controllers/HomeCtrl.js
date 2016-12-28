@@ -9,7 +9,6 @@ app.controller("HomeCtrl", function ($scope, $q, DataFactory) {
 
     $scope.init = function () {
         if ($scope.$parent.dataCache.playerData == undefined) {
-            console.log("inside the IF statement")
             $scope.$parent.loadDataFromAPI()
         }
     }

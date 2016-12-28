@@ -32,7 +32,6 @@ app.factory("DataFactory", ($http, $q) => {
     }
 
     const getAverageStats = function () {
-        console.log("getAverageStats running")
         return $q((resolve,reject) => {
             $http({
                 method: 'GET',
