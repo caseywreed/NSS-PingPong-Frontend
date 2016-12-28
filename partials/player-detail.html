@@ -1,6 +1,10 @@
 <div ng-show="player" class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
 
-    <h3>{{player.firstName}} {{player.lastName}}</h3>
+    <h3>
+        {{player.firstName}} {{player.lastName}} vs
+        <span ng-hide="comparePlayer">Average Player</span>
+        <span ng-show="comparePlayer">{{comparePlayer.firstName}} {{comparePlayer.lastName}}</span>
+    </h3>
     <h5>Cohort {{player.cohort}}</h5>
 
     <select ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
