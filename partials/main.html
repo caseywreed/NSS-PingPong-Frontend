@@ -35,58 +35,58 @@
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'games'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.games'; sortReverse = !sortReverse">
                         Games
-                        <span ng-show="sortType == 'games'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.games'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'wins'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.wins'; sortReverse = !sortReverse">
                         Wins
-                        <span ng-show="sortType == 'wins'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.wins'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'losses'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.losses'; sortReverse = !sortReverse">
                         Losses
-                        <span ng-show="sortType == 'losses'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.losses'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'winPercentage'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.winPercentage'; sortReverse = !sortReverse">
                         Win Percentage
-                        <span ng-show="sortType == 'winPercentage'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.winPercentage'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'singlesWinPercentage'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.singlesWinPercentage'; sortReverse = !sortReverse">
                         Singles Win Percentage
-                        <span ng-show="sortType == 'singlesWinPercentage'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.singlesWinPercentage'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'doublesWinPercentage'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.doublesWinPercentage'; sortReverse = !sortReverse">
                         Doubles Win Percentage
-                        <span ng-show="sortType == 'doublesWinPercentage'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.doublesWinPercentage'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'avgPointDiff'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.avgPointDiff'; sortReverse = !sortReverse">
                         Average Point Differential
-                        <span ng-show="sortType == 'avgPointDiff'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.avgPointDiff'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'rating'; sortReverse = !sortReverse">
+                    <a href="#!/" ng-click="sortType = 'stats.rating'; sortReverse = !sortReverse">
                         Rating
-                        <span ng-show="sortType == 'rating'" class="fa fa-caret-down"></span>
+                        <span ng-show="sortType == 'stats.rating'" class="fa fa-caret-down"></span>
                     </a>
                 </td>
             </tr>
         </thead>
 
         <tbody>
-        <tr ng-repeat="p in $parent.dataCache.playerData | orderBy:sortType:sortReverse | filter:searchPlayer">
+        <tr ng-repeat="p in $parent.dataCache.playerData | orderBy:sortType:sortReverse:customComparator | filter:searchPlayer">
             <td><a ng-href="#!/players/{{p.playerId}}">{{ p.lastName}}, {{ p.firstName }}</a></td>
             <td>{{ p.cohort | number}}</td>
             <td>{{ p.stats.games | number }}</td>
