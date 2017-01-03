@@ -42,6 +42,7 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
     };
 
     $scope.init = function () {
+        console.log("sup it's the hick from french lick")
         $scope.player = $scope.dataCache.playerData.filter(function (p) {
             return p.playerId == $routeParams.playerId
         });
@@ -97,19 +98,30 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
     }
 
     $scope.getComparePlayer = function (id) {
-        //Grab a new player to compare
-        $scope.comparePlayer = $scope.dataCache.playerData.filter(function (p) {
-            return p.playerId == id
-        });
-        $scope.comparePlayer = $scope.comparePlayer[0];
+        if (id === "averagePlayer")
+        {
+            $scope.radarGraphData = []
+            $scope.radarPercGraphData = []
+            $scope.pointDiffData = []
+            $scope.ratingData = []
+            $scope.comparePlayer = null
+            $scope.seedInitialData()
 
-        // Clear out second dataset
-        $scope.radarGraphData.pop();
-        $scope.radarPercGraphData.pop();
-        $scope.pointDiffData.pop();
-        $scope.ratingData.pop();
+        } else {
+            //Grab a new player to compare
+            $scope.comparePlayer = $scope.dataCache.playerData.filter(function (p) {
+                return p.playerId == id
+            });
+            $scope.comparePlayer = $scope.comparePlayer[0];
 
-        $scope.seedComparePlayerData();
+            // Clear out second dataset
+            $scope.radarGraphData.pop();
+            $scope.radarPercGraphData.pop();
+            $scope.pointDiffData.pop();
+            $scope.ratingData.pop();
+
+            $scope.seedComparePlayerData();
+        }
     }
 
     $scope.seedComparePlayerData = function () {

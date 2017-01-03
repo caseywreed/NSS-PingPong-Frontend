@@ -1,10 +1,14 @@
 <div ng-show="player" class="container" ng-init="init()" ng-controller="PlayerDetailCtrl">
 
-    <h3>{{player.firstName}} {{player.lastName}}</h3>
-    <h5>Cohort {{player.cohort}}</h5>
+    <h3>
+        <span class="playerDetailName">{{player.firstName}} {{player.lastName}} (Cohort {{player.cohort}})</span> vs
+        <span class ="opponentDetailName" ng-hide="comparePlayer">Average Player Stats</span>
+        <span class ="opponentDetailName" ng-show="comparePlayer">{{comparePlayer.firstName}} {{comparePlayer.lastName}} (Cohort {{comparePlayer.cohort}})</span>
+    </h3>
 
-    <select ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
-        <option>Select a Player</option>
+    <label for="comparePlayerSelect">Compare to </label>
+    <select id="comparePlayerSelect" ng-change="getComparePlayer(compareSearchId)" ng-model="compareSearchId">
+        <option value="averagePlayer">Average Player Stats</option>
         <option
         ng-repeat="p in $parent.dataCache.playerData"
         value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
