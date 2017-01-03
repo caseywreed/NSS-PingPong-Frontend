@@ -42,7 +42,6 @@ app.controller("PlayerDetailCtrl", function ($scope, $routeParams, $q, DataFacto
     };
 
     $scope.init = function () {
-        console.log("sup it's the hick from french lick")
         $scope.player = $scope.dataCache.playerData.filter(function (p) {
             return p.playerId == $routeParams.playerId
         });
