@@ -24,9 +24,8 @@ app.factory("DataFactory", ($http, $q) => {
             }).then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-            }, function errorCallback(data) {
-                // called asynchronously if an error occurs
-                // or server returns data with an error status.
+            }, function errorCallback(error) {
+                console.log(error)
             });
         })
     }
@@ -39,9 +38,8 @@ app.factory("DataFactory", ($http, $q) => {
             }).then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-            }, function errorCallback(data) {
-                // called asynchronously if an error occurs
-                // or server returns data with an error status.
+            }, function errorCallback(error) {
+                console.log(error)
             });
         })
     }
@@ -52,9 +50,8 @@ app.factory("DataFactory", ($http, $q) => {
             .then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-            }, function errorCallback(data) {
-                // called asynchronously if an error occurs
-                // or server returns data with an error status.
+            }, function errorCallback(error) {
+                console.log(error)
             });
         })
     }
@@ -65,9 +62,8 @@ app.factory("DataFactory", ($http, $q) => {
             .then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-            }, function errorCallback(data) {
-                // called asynchronously if an error occurs
-                // or server returns data with an error status.
+            }, function errorCallback(error) {
+                console.log(error)
             });
         })
     }
@@ -78,9 +74,8 @@ app.factory("DataFactory", ($http, $q) => {
             .then(function successCallback(data) {
                 console.log(data)
                 resolve(data)
-            }, function errorCallback(data) {
-                // called asynchronously if an error occurs
-                // or server returns data with an error status.
+            }, function errorCallback(error ) {
+                console.log(error)
             });
         })
     }

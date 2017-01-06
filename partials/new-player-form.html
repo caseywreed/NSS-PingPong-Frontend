@@ -20,7 +20,7 @@
                     <label for="email" class="cols-sm-2 control-label">Cohort</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-university fa" aria-hidden="true"></i></span>
                             <input type="number" min="1" max="100" step="1" class="form-control" name="cohort" id="cohort" ng-model="newPlayer.cohort" placeholder="Cohort"/>
                         </div>
                     </div>
@@ -29,10 +29,14 @@
                 <div class="form-group">
                     <label for="hand" class="cols-sm-2 control-label">Left Handed?</label>
                     <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                            <label for="leftTrue"><input type="radio" ng-value="true" ng-model="newPlayer.leftHanded" class="form-control" name="hand" id="leftTrue"/>Yes</label>
-                            <label for="leftFalse"><input type="radio" ng-value="false" ng-model="newPlayer.leftHanded" class="form-control" name="hand" id="leftFalse"/>No</label>
+                        <div class="input-group hand-radio-group">
+                            <span class="input-group-addon"><i class="fa fa-hand-paper-o fa" aria-hidden="true"></i></span>
+                            <div class="hand-radio-button">
+                            <label for="leftTrue">Yes<input type="radio" ng-value="true" ng-model="newPlayer.leftHanded" class="form-control" name="hand" id="leftTrue"/></label>
+                            </div>
+                            <div class="hand-radio-button">
+                            <label for="leftFalse">No<input type="radio" ng-value="false" ng-model="newPlayer.leftHanded" class="form-control" name="hand" id="leftFalse"/></label>
+                            </div>
                         </div>
                     </div>
                 </div>
