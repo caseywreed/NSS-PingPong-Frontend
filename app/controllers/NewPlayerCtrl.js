@@ -20,6 +20,7 @@ app.controller("NewPlayerCtrl", function ($scope, $location, DataFactory) {
         $scope.newPlayer.lastName != null &&
         $scope.newPlayer.leftHanded != null &&
         $scope.newPlayer.cohort != null) {
+            console.log("Valid form")
             DataFactory.postPlayer($scope.newPlayer)
             .then(function () {
                 $scope.$parent.loadDataFromAPI()
