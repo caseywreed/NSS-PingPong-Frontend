@@ -23,5 +23,9 @@ app.config(function ($routeProvider) {
             templateUrl: "partials/game-report.html",
             controller: "GameReportCtrl"
         }).
+        when("/newplayer", {
+            templateUrl: "partials/new-player-form.html",
+            controller: "NewPlayerCtrl"
+        }).
         otherwise('/')
 })
