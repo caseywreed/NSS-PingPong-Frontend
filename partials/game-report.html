@@ -1,27 +1,28 @@
 <div class="container" ng-init="init()" ng-controller="GameReportCtrl">
+    <div class="row">
+        <div class="col-sm-8 col-md-4">
+            <button ng-click="
+            showTwoPlayerGameForm = true;
+            showFourPlayerGameForm = false;
+            showGamePrompt = false;"
+            class="btn btn-primary btn-lg btn-block login-button">
+            Singles Game
+            </button>
 
-    <button ng-click="
-    showTwoPlayerGameForm = true;
-    showFourPlayerGameForm = false;
-    showGamePrompt = false;">
-    Singles Game
-    </button>
+            <button ng-click="
+            showFourPlayerGameForm = true;
+            showTwoPlayerGameForm = false;
+            showGamePrompt = false"
+            class="btn btn-primary btn-lg btn-block login-button">
+            Doubles Game
+            </button>
+        </div>
 
-    <button ng-click="
-    showFourPlayerGameForm = true;
-    showTwoPlayerGameForm = false;
-    showGamePrompt = false">
-    Doubles Game
-    </button>
-
-    <div ng-show="showGamePrompt">
-        Ask whether it's a two or four player game
-    </div>
-
+        <!-- Two Player Game Form -->
     <div ng-show="showTwoPlayerGameForm">
         <div class="row main">
             <div class="main-login main-center">
-            <h5>Singles Game</h5>
+            <h2>Singles Game</h2>
                 <form class="" method="post" action="#">
 
                     <div class="form-group">
@@ -29,7 +30,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="twoPlayerGame.playerOneId">
+                                <select ng-model="twoPlayerGame.playerOneId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
@@ -50,12 +51,14 @@
                         </div>
                     </div>
 
+                    <hr>
+
                     <div class="form-group">
                         <label for="playerTwo" class="cols-sm-2 control-label">Player Two</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="twoPlayerGame.playerTwoId">
+                                <select ng-model="twoPlayerGame.playerTwoId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
@@ -85,18 +88,19 @@
         </div>
     </div>
 
+    <!-- Four Player Game Form -->
     <div ng-show="showFourPlayerGameForm">
         <div class="row main">
             <div class="main-login main-center">
-            <h5>Doubles Game</h5>
+            <h2>Doubles Game</h2>
                 <form class="" method="post" action="#">
-                    <h6>Team One</h6>
+                    <h4>Team One</h4>
                     <div class="form-group">
                         <label for="playerOne" class="cols-sm-2 control-label">Player One</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="fourPlayerGame.playerOneId">
+                                <select ng-model="fourPlayerGame.playerOneId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
@@ -112,7 +116,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="fourPlayerGame.playerTwoId">
+                                <select ng-model="fourPlayerGame.playerTwoId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
@@ -133,12 +137,15 @@
                         </div>
                     </div>
 
+                    <hr>
+
                     <div class="form-group">
+                    <h4>Team Two</h4>
                         <label for="playerThree" class="cols-sm-2 control-label">Player Three</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="fourPlayerGame.playerThreeId">
+                                <select ng-model="fourPlayerGame.playerThreeId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
@@ -154,7 +161,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <select ng-model="fourPlayerGame.playerFourId">
+                                <select ng-model="fourPlayerGame.playerFourId" class="form-control player-select-dropdown">
                                 <option>Select a Player</option>
                                     <option
                                     ng-repeat="p in $parent.dataCache.playerData"
