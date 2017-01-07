@@ -4,12 +4,6 @@
 
 <div ng-show="$parent.dataCache.playerData" class="container" ng-init="init()" ng-controller="HomeCtrl">
 
-    <div class="alert alert-info">
-        <p>Sort Type: {{ sortType }}</p>
-        <p>Sort Reverse: {{ sortReverse }}</p>
-        <p>Search Query: {{ searchPlayer }}</p>
-    </div>
-
     <form>
         <div class="form-group">
             <div class="input-group">
@@ -86,18 +80,18 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="p in $parent.dataCache.playerData | orderBy:sortType:sortReverse:customComparator | filter:searchPlayer">
-            <td><a ng-href="#!/players/{{p.playerId}}">{{ p.lastName}}, {{ p.firstName }}</a></td>
-            <td>{{ p.cohort | number}}</td>
-            <td>{{ p.stats.games | number }}</td>
-            <td>{{ p.stats.wins | number }}</td>
-            <td>{{ p.stats.losses | number}}</td>
-            <td>{{ p.stats.winPercentage | number}}</td>
-            <td>{{ p.stats.singlesWinPercentage | number}}</td>
-            <td>{{ p.stats.doublesWinPercentage | number}}</td>
-            <td>{{ p.stats.avgPointDiff | number}}</td>
-            <td>{{ p.stats.rating | number}}</td>
-        </tr>
+            <tr ng-repeat="p in $parent.dataCache.playerData | orderBy:sortType:sortReverse:customComparator | filter:searchPlayer">
+                <td><a ng-href="#!/players/{{p.playerId}}">{{ p.lastName}}, {{ p.firstName }}</a></td>
+                <td>{{ p.cohort | number}}</td>
+                <td>{{ p.stats.games | number }}</td>
+                <td>{{ p.stats.wins | number }}</td>
+                <td>{{ p.stats.losses | number}}</td>
+                <td>{{ p.stats.winPercentage | number}}</td>
+                <td>{{ p.stats.singlesWinPercentage | number}}</td>
+                <td>{{ p.stats.doublesWinPercentage | number}}</td>
+                <td>{{ p.stats.avgPointDiff | number}}</td>
+                <td>{{ p.stats.rating | number}}</td>
+            </tr>
         </tbody>
 
     </table>

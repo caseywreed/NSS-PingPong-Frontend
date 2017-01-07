@@ -18,77 +18,169 @@
         Ask whether it's a two or four player game
     </div>
 
-    <!-- Two Player Game Form -->
     <div ng-show="showTwoPlayerGameForm">
+        <div class="row main">
+            <div class="main-login main-center">
+            <h5>Singles Game</h5>
+                <form class="" method="post" action="#">
 
-        <h4>Player One</h4>
-        <select ng-model="twoPlayerGame.playerOneId">
-        <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
-            </option>
-        </select>
+                    <div class="form-group">
+                        <label for="playerOne" class="cols-sm-2 control-label">Player One</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="twoPlayerGame.playerOneId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <input type="number" ng-model="twoPlayerGame.teamOneScore">
+                    <div class="form-group">
+                        <label for="playerOneScore" class="cols-sm-2 control-label">Player One Score</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="number" min="0" max="31" class="form-control" name="playerOneScore" id="playerOneScore" ng-model="twoPlayerGame.teamOneScore" placeholder="Player One Score"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <h4>Player Two</h4>
-        <select ng-model="twoPlayerGame.playerTwoId">
-        <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
-        </select>
+                    <div class="form-group">
+                        <label for="playerTwo" class="cols-sm-2 control-label">Player Two</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="twoPlayerGame.playerTwoId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <input type="number" ng-model="twoPlayerGame.teamTwoScore">
+                    <div class="form-group">
+                        <label for="playerTwoScore" class="cols-sm-2 control-label">Player Two Score</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="number" min="0" max="31" class="form-control" name="playerTwoScore" id="playerTwoScore" ng-model="twoPlayerGame.teamTwoScore" placeholder="Player Two Score"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <button ng-click="submitScores(twoPlayerGame)">Submit Scores</button>
+                    <div class="form-group ">
+                        <a type="button" ng-click="submitScores(twoPlayerGame)" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit</a>
+                    </div>
 
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- Four Player Game Form -->
     <div ng-show="showFourPlayerGameForm">
+        <div class="row main">
+            <div class="main-login main-center">
+            <h5>Doubles Game</h5>
+                <form class="" method="post" action="#">
+                    <h6>Team One</h6>
+                    <div class="form-group">
+                        <label for="playerOne" class="cols-sm-2 control-label">Player One</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="fourPlayerGame.playerOneId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <h4>Player One</h4>
-        <select ng-model="fourPlayerGame.playerOneId">
-            <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
-            </option>
-        </select>
+                    <div class="form-group">
+                        <label for="playerTwo" class="cols-sm-2 control-label">Player Two</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="fourPlayerGame.playerTwoId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <h4>Player Two</h4>
-        <select ng-model="fourPlayerGame.playerTwoId">
-        <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
-        </select>
+                    <div class="form-group">
+                        <label for="teamOneScore" class="cols-sm-2 control-label">Team One Score</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="number" min="0" max="31" class="form-control" name="teamOneScore" id="teamOneScore" ng-model="fourPlayerGame.teamOneScore" placeholder="Team One Score"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <input type="number" ng-model="fourPlayerGame.teamOneScore">
+                    <div class="form-group">
+                        <label for="playerThree" class="cols-sm-2 control-label">Player Three</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="fourPlayerGame.playerThreeId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <h4>Player Three</h4>
-        <select ng-model="fourPlayerGame.playerThreeId">
-        <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
-            </option>
-        </select>
+                    <div class="form-group">
+                        <label for="playerTwo" class="cols-sm-2 control-label">Player Four</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <select ng-model="fourPlayerGame.playerFourId">
+                                <option>Select a Player</option>
+                                    <option
+                                    ng-repeat="p in $parent.dataCache.playerData"
+                                    value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <h4>Player Four</h4>
-        <select ng-model="fourPlayerGame.playerFourId">
-        <option>Select a Player</option>
-            <option
-            ng-repeat="p in $parent.dataCache.playerData"
-            value="{{p.playerId}}">{{p.firstName}} {{p.lastName}}</option>
-        </select>
+                    <div class="form-group">
+                        <label for="teamTwoScore" class="cols-sm-2 control-label">Team Two Score</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="number" min="0" max="31" class="form-control" name="teamTwoScore" id="teamTwoScore" ng-model="fourPlayerGame.teamTwoScore" placeholder="Team Two Score"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <input type="number" ng-model="fourPlayerGame.teamTwoScore">
+                    <div class="form-group ">
+                        <a type="button" ng-click="submitScores(fourPlayerGame)" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit</a>
+                    </div>
 
-        <button ng-click="submitScores(fourPlayerGame)">Submit Scores</button>
-
+                </form>
+            </div>
+        </div>
     </div>
-
 </div>
