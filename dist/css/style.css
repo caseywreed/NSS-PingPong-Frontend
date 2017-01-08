@@ -1,0 +1,61 @@
+body {
+  margin-top: 60px; }
+
+.playerDetailName {
+  color: #BF0E00; }
+
+.opponentDetailName {
+  color: #016775; }
+
+.form-group {
+  margin-bottom: 15px; }
+
+label {
+  margin-bottom: 10px; }
+
+.form-control {
+  height: auto !important;
+  padding: 8px 12px !important; }
+
+.input-group {
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.21) !important;
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.21) !important;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.21) !important; }
+
+.main-center {
+  margin-top: 30px;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 10px 40px;
+  background: #BF0E00;
+  color: #FFF;
+  text-shadow: none;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.31);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.31); }
+
+span.input-group-addon i {
+  color: #016775;
+  font-size: 17px; }
+
+.hand-radio-group {
+  background: #016775; }
+
+.hand-radio-button {
+  padding-top: 10px;
+  padding-left: 30px;
+  display: inline-block; }
+
+.login-button {
+  margin-top: 5px;
+  background: #016775; }
+
+.login-register {
+  font-size: 11px;
+  text-align: center; }
+
+.center-div {
+  margin: 0 auto; }
+
+.player-select-dropdown {
+  font-size: 22px; }
