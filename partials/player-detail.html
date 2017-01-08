@@ -19,58 +19,31 @@
         <thead>
             <tr>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-                        Name
-                        <span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
-                    </a>
+                    Name
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.games'; sortReverse = !sortReverse">
-                        Games
-                        <span ng-show="sortType == 'stats.games'" class="fa fa-caret-down"></span>
-                    </a>
+                    Games
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.wins'; sortReverse = !sortReverse">
-                        Wins
-                        <span ng-show="sortType == 'stats.wins'" class="fa fa-caret-down"></span>
-                    </a>
+                    Wins
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.losses'; sortReverse = !sortReverse">
-                        Losses
-                        <span ng-show="sortType == 'stats.losses'" class="fa fa-caret-down"></span>
-                    </a>
+                    Losses
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.winPercentage'; sortReverse = !sortReverse">
-                        Win Percentage
-                        <span ng-show="sortType == 'stats.winPercentage'" class="fa fa-caret-down"></span>
-                    </a>
+                    Win Percentage
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.singlesWinPercentage'; sortReverse = !sortReverse">
-                        Singles Win Percentage
-                        <span ng-show="sortType == 'stats.singlesWinPercentage'" class="fa fa-caret-down"></span>
-                    </a>
+                    Singles Win Percentage
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.doublesWinPercentage'; sortReverse = !sortReverse">
-                        Doubles Win Percentage
-                        <span ng-show="sortType == 'stats.doublesWinPercentage'" class="fa fa-caret-down"></span>
-                    </a>
+                    Doubles Win Percentage
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.avgPointDiff'; sortReverse = !sortReverse">
-                        Average Point Differential
-                        <span ng-show="sortType == 'stats.avgPointDiff'" class="fa fa-caret-down"></span>
-                    </a>
+                    Average Point Differential
                 </td>
                 <td>
-                    <a href="#!/" ng-click="sortType = 'stats.rating'; sortReverse = !sortReverse">
-                        Rating
-                        <span ng-show="sortType == 'stats.rating'" class="fa fa-caret-down"></span>
-                    </a>
+                    Rating
                 </td>
             </tr>
         </thead>
@@ -78,36 +51,36 @@
         <tbody>
             <tr>
                 <td><a ng-href="#!/players/{{player.playerId}}">{{ player.lastName}}, {{ player.firstName }}</a></td>
-                <td>{{ player.stats.games | number }}</td>
-                <td>{{ player.stats.wins | number }}</td>
-                <td>{{ player.stats.losses | number}}</td>
-                <td>{{ player.stats.winPercentage | number}}</td>
-                <td>{{ player.stats.singlesWinPercentage | number}}</td>
-                <td>{{ player.stats.doublesWinPercentage | number}}</td>
-                <td>{{ player.stats.avgPointDiff | number}}</td>
-                <td>{{ player.stats.rating | number}}</td>
+                <td><span class="playerDetailName">{{ player.stats.games | number }}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.wins | number }}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.losses | number}}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.winPercentage | number}}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.singlesWinPercentage | number}}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.doublesWinPercentage | number}}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.avgPointDiff | number}}</span></td>
+                <td><span class="playerDetailName">{{ player.stats.rating | number}}</span></td>
             </tr>
             <tr ng-hide="comparePlayer">
                 <td>Average Player Stats</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.games | number }}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.wins | number }}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.losses | number}}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.winPercentage | number}}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.singlesWinPercentage | number}}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.doublesWinPercentage | number}}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.avgPointDiff | number}}</td>
-                <td>{{ $parent.dataCache.avgPlayerStats.rating | number}}</td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.games | number }}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.wins | number }}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.losses | number}}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.winPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.singlesWinPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.doublesWinPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.avgPointDiff | number}}</span></td>
+                <td><span class="opponentDetailName">{{ $parent.dataCache.avgPlayerStats.rating | number}}</span></td>
             </tr>
             <tr ng-show="comparePlayer">
                 <td><a ng-href="#!/players/{{comparePlayer.playerId}}">{{ comparePlayer.lastName}}, {{ comparePlayer.firstName }}</a></td>
-                <td>{{ comparePlayer.stats.games | number }}</td>
-                <td>{{ comparePlayer.stats.wins | number }}</td>
-                <td>{{ comparePlayer.stats.losses | number}}</td>
-                <td>{{ comparePlayer.stats.winPercentage | number}}</td>
-                <td>{{ comparePlayer.stats.singlesWinPercentage | number}}</td>
-                <td>{{ comparePlayer.stats.doublesWinPercentage | number}}</td>
-                <td>{{ comparePlayer.stats.avgPointDiff | number}}</td>
-                <td>{{ comparePlayer.stats.rating | number}}</td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.games | number }}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.wins | number }}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.losses | number}}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.winPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.singlesWinPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.doublesWinPercentage | number}}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.avgPointDiff | number}}</span></td>
+                <td><span class="opponentDetailName">{{ comparePlayer.stats.rating | number}}</span></td>
             </tr>
         </tbody>
     </table>
